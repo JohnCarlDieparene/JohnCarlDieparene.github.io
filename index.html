@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - IT Portfolio</title>
+    <title>John Carl Dieparene - IT Portfolio</title>
     <style>
         /* ========== BASIC RESET ========== */
         * {
@@ -13,11 +13,10 @@
         }
 
         /* ========== COLORS & FONTS ========== */
-        /* Pwede mong palitan ang mga kulay dito */
         :root {
-            --primary-color: #2c3e50;      /* Dark blue-gray */
-            --secondary-color: #3498db;    /* Bright blue */
-            --accent-color: #e74c3c;       /* Red accent */
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
             --text-color: #333;
             --light-bg: #f8f9fa;
             --white: #ffffff;
@@ -29,257 +28,449 @@
             color: var(--text-color);
         }
 
-       /* ========== NAVIGATION BAR ========== */
-nav {
-    background-color: var(--primary-color);
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+        /* ========== NAVIGATION BAR ========== */
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-nav .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-nav .logo {
-    color: var(--white);
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+        nav .logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
 
-nav a {
-    color: var(--white);
-    text-decoration: none;
-    transition: color 0.3s;
-    font-weight: 500;
-}
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
 
-nav a:hover {
-    color: var(--secondary-color);
-}
+        nav a:hover {
+            color: var(--secondary-color);
+        }
 
-/* Hamburger menu - hidden by default */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1001;
-}
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
 
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: var(--white);
-    margin: 3px 0;
-    transition: all 0.3s;
-    border-radius: 3px;
-}
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--white);
+            margin: 3px 0;
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
 
-/* Hamburger animation when active */
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-}
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
 
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
 
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
 
-/* ========== RESPONSIVE DESIGN ========== */
-/* Para sa tablets (768px - 1024px) */
-@media (max-width: 1024px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 120px 2rem 80px;
+            text-align: center;
+            margin-top: 60px;
+        }
 
-/* Para sa mobile phones (max 768px) */
-@media (max-width: 768px) {
-    /* Show hamburger menu */
-    .hamburger {
-        display: flex;
-    }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
 
-    /* Navigation menu - hidden by default on mobile */
-    nav ul {
-        position: fixed;
-        left: -100%; /* Hidden off-screen */
-        top: 70px;
-        flex-direction: column;
-        background-color: var(--primary-color);
-        width: 100%;
-        text-align: center;
-        transition: left 0.3s ease;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
-        padding: 2rem 0;
-        gap: 0;
-    }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
 
-    /* Show menu when active */
-    nav ul.active {
-        left: 0;
-    }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
 
-    nav li {
-        margin: 1rem 0;
-    }
+        .btn:hover {
+            background-color: #c0392b;
+        }
 
-    nav a {
-        display: block;
-        padding: 1rem;
-        font-size: 1.1rem;
-    }
+        /* ========== SECTIONS ========== */
+        section {
+            padding: 60px 2rem;
+        }
 
-    /* Adjust container padding */
-    nav .container {
-        padding: 0 1.5rem;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    nav .logo {
-        font-size: 1.2rem;
-    }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
 
-    /* Hero section */
-    .hero {
-        padding: 100px 1rem 60px;
-    }
+        /* ========== ABOUT SECTION ========== */
+        .about {
+            background-color: var(--white);
+        }
 
-    .hero h1 {
-        font-size: 2rem;
-    }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
 
-    .hero p {
-        font-size: 1.1rem;
-    }
+        .profile-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
 
-    /* About section */
-    .about-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-    }
+        /* ========== SKILLS SECTION ========== */
+        .skills {
+            background-color: var(--light-bg);
+        }
 
-    .profile-img {
-        margin: 0 auto;
-        max-width: 250px;
-    }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
 
-    /* Skills grid */
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
+        .skill-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
 
-    /* Projects grid - 1 column on mobile */
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
 
-    /* Section padding */
-    section {
-        padding: 40px 1rem;
-    }
+        .skill-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
 
-    .section-title {
-        font-size: 2rem;
-    }
+        .skill-bar {
+            background-color: #e0e0e0;
+            height: 10px;
+            border-radius: 5px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
 
-    /* Buttons */
-    .btn {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
+        .skill-progress {
+            background-color: var(--secondary-color);
+            height: 100%;
+            border-radius: 5px;
+        }
 
-    /* Project cards - better spacing */
-    .project-card {
-        margin-bottom: 1.5rem;
-    }
+        /* ========== PROJECTS SECTION ========== */
+        .projects {
+            background-color: var(--white);
+        }
 
-    .project-content {
-        padding: 1rem;
-    }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
 
-    .project-content h3 {
-        font-size: 1.3rem;
-    }
+        .project-card {
+            background-color: var(--light-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
 
-    .project-content p {
-        font-size: 0.9rem;
-    }
-}
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
 
-/* Para sa very small phones (max 480px) */
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 1.5rem;
-    }
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #999;
+        }
 
-    .hero p {
-        font-size: 1rem;
-    }
+        .project-content {
+            padding: 1.5rem;
+        }
 
-    nav .logo {
-        font-size: 1rem;
-    }
+        .project-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
 
-    .section-title {
-        font-size: 1.5rem;
-    }
+        /* ========== CONTACT SECTION ========== */
+        .contact {
+            background-color: var(--light-bg);
+        }
 
-    .stats {
-        flex-direction: column;
-        gap: 1rem;
-    }
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    .btn {
-        padding: 8px 15px;
-        font-size: 0.85rem;
-    }
-}
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav ul {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--primary-color);
+                width: 100%;
+                text-align: center;
+                transition: left 0.3s ease;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
+                padding: 2rem 0;
+                gap: 0;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav li {
+                margin: 1rem 0;
+            }
+
+            nav a {
+                display: block;
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+
+            nav .container {
+                padding: 0 1.5rem;
+            }
+
+            nav .logo {
+                font-size: 1.2rem;
+            }
+
+            .hero {
+                padding: 100px 1rem 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .profile-img {
+                margin: 0 auto;
+                max-width: 250px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 40px 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .project-card {
+                margin-bottom: 1.5rem;
+            }
+
+            .project-content {
+                padding: 1rem;
+            }
+
+            .project-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .project-content p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav .logo {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
-   <!-- ========== NAVIGATION ========== -->
-<nav>
-    <div class="container">
-        <div class="logo">John Carl Dieparene</div>
-        
-        <!-- Hamburger menu button (visible on mobile only) -->
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        
-        <!-- Navigation links -->
-        <ul id="navMenu">
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#skills" class="nav-link">Skills</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+    <!-- ========== NAVIGATION ========== -->
+    <nav>
+        <div class="container">
+            <div class="logo">John Carl Dieparene</div>
+            
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- ========== HERO SECTION ========== -->
     <section id="home" class="hero">
@@ -294,13 +485,11 @@ nav a:hover {
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div>
-                    <!-- Pwede mong palitan ng actual photo mo -->
                     <img src="images/id.jpg" alt="Profile Photo" class="profile-img">
                 </div>
                 <div>
                     <h3>Hello! I'm an IT Student</h3>
                     <p>
-                        <!-- I-customize mo ang text na ito -->
                         I'm currently pursuing my degree in Information Technology at New Era University. 
                         I'm passionate about technology and constantly learning new skills in programming, 
                         web development, and software engineering.
@@ -319,7 +508,6 @@ nav a:hover {
         <div class="container">
             <h2 class="section-title">My Skills</h2>
             <div class="skills-grid">
-                <!-- Skill Card 1 -->
                 <div class="skill-card">
                     <h3>Programming</h3>
                     <p>Python, Java, C++</p>
@@ -328,7 +516,6 @@ nav a:hover {
                     </div>
                 </div>
 
-                <!-- Skill Card 2 -->
                 <div class="skill-card">
                     <h3>Web Development</h3>
                     <p>HTML, CSS, JavaScript</p>
@@ -337,7 +524,6 @@ nav a:hover {
                     </div>
                 </div>
 
-                <!-- Skill Card 3 -->
                 <div class="skill-card">
                     <h3>Database</h3>
                     <p>MySQL, MongoDB</p>
@@ -346,7 +532,6 @@ nav a:hover {
                     </div>
                 </div>
 
-                <!-- Skill Card 4 -->
                 <div class="skill-card">
                     <h3>Tools & Software</h3>
                     <p>Git, VS Code, Figma</p>
@@ -358,54 +543,48 @@ nav a:hover {
         </div>
     </section>
 
-   <!-- ========== PROJECTS SECTION ========== -->
-<section id="projects" class="projects">
-    <div class="container">
-        <h2 class="section-title">My Projects</h2>
-        <div class="projects-grid">
-            
-            <!-- PROJECT 1: TO-DO LIST -->
-            <div class="project-card">
-                <div class="project-img">✅</div>
-                <div class="project-content">
-                    <h3>Task Master - To-Do List App</h3>
-                    <p>A full-featured task management web application with CRUD operations, real-time filtering, and persistent data storage using Local Storage API.</p>
-                    <p style="margin-top: 10px;"><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, Local Storage</p>
-                    <p style="margin-top: 5px;"><strong>Features:</strong> Add/Edit/Delete tasks, Filters, Statistics, Animations</p>
-                    <a href="project1-todo-list.html" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block; margin-right: 10px;">View Live Demo</a>
+    <!-- ========== PROJECTS SECTION ========== -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="project-img">✅</div>
+                    <div class="project-content">
+                        <h3>Task Master - To-Do List App</h3>
+                        <p>A full-featured task management web application with CRUD operations, real-time filtering, and persistent data storage using Local Storage API.</p>
+                        <p style="margin-top: 10px;"><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, Local Storage</p>
+                        <p style="margin-top: 5px;"><strong>Features:</strong> Add/Edit/Delete tasks, Filters, Statistics, Animations</p>
+                        <a href="project1-todo-list.html" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">View Live Demo</a>
                     </div>
-            </div>
-
-            <!-- PROJECT 2: PASSWORD GENERATOR -->
-            <div class="project-card">
-                <div class="project-img">🔐</div>
-                <div class="project-content">
-                    <h3>Password Generator & Strength Checker</h3>
-                    <p>A Python desktop application with GUI that generates secure random passwords and evaluates password strength using multiple security criteria.</p>
-                    <p style="margin-top: 10px;"><strong>Tech Stack:</strong> Python, Tkinter, Regular Expressions</p>
-                    <p style="margin-top: 5px;"><strong>Features:</strong> Random generation, Strength meter, Clipboard integration</p>
-                    <a href="https://github.com/JohnCarlDieparene/password-generator" target="_blank" class="btn">View Code on GitHub</a>
-
-
                 </div>
-            </div>
 
-            <!-- PROJECT 3: SNAKE GAME -->
-            <div class="project-card">
-                <div class="project-img">🐍</div>
-                <div class="project-content">
-                    <h3>Classic Snake Game</h3>
-                    <p>Classic Snake game developed with Python and Pygame, featuring smooth animations, collision detection, and score tracking implemented using OOP principles.</p>
-                    <p style="margin-top: 10px;"><strong>Tech Stack:</strong> Python, Pygame, OOP</p>
-                    <p style="margin-top: 5px;"><strong>Features:</strong> Smooth gameplay, High score system, Game states</p>
-                    <a href="https://github.com/JohnCarlDieparene/snake-game" target="_blank" class="btn">View Code on GitHub</a>
-    
+                <div class="project-card">
+                    <div class="project-img">🔐</div>
+                    <div class="project-content">
+                        <h3>Password Generator & Strength Checker</h3>
+                        <p>A Python desktop application with GUI that generates secure random passwords and evaluates password strength using multiple security criteria.</p>
+                        <p style="margin-top: 10px;"><strong>Tech Stack:</strong> Python, Tkinter, Regular Expressions</p>
+                        <p style="margin-top: 5px;"><strong>Features:</strong> Random generation, Strength meter, Clipboard integration</p>
+                        <a href="https://github.com/JohnCarlDieparene/password-generator" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">View Code on GitHub</a>
+                    </div>
                 </div>
-            </div>
 
+                <div class="project-card">
+                    <div class="project-img">🐍</div>
+                    <div class="project-content">
+                        <h3>Classic Snake Game</h3>
+                        <p>Classic Snake game developed with Python and Pygame, featuring smooth animations, collision detection, and score tracking implemented using OOP principles.</p>
+                        <p style="margin-top: 10px;"><strong>Tech Stack:</strong> Python, Pygame, OOP</p>
+                        <p style="margin-top: 5px;"><strong>Features:</strong> Smooth gameplay, High score system, Game states</p>
+                        <a href="https://github.com/JohnCarlDieparene/snake-game" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">View Code on GitHub</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- ========== CONTACT SECTION ========== -->
     <section id="contact" class="contact">
@@ -431,7 +610,7 @@ nav a:hover {
                 <div class="contact-info">
                     <p>Or reach me at:</p>
                     <a href="mailto:your.email@example.com">your.email@example.com</a>
-                    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                    <a href="https://github.com/JohnCarlDieparene" target="_blank">GitHub</a>
                     <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
                 </div>
             </div>
@@ -445,7 +624,7 @@ nav a:hover {
 
     <!-- ========== JAVASCRIPT ========== -->
     <script>
-        // Smooth scrolling para sa navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -459,42 +638,36 @@ nav a:hover {
             });
         });
 
-        // Simple form submission handler
-        // Note: Ito ay placeholder lang. Para gumana talaga ang form,
-        // kailangan mo ng backend or email service
+        // Form submission
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message! (Note: I-setup mo pa ang actual form submission)');
+            alert('Thank you for your message!');
             this.reset();
         });
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
     </script>
-
-// ========== HAMBURGER MENU TOGGLE ==========
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
-const navLinks = document.querySelectorAll('.nav-link');
-
-// Toggle menu when hamburger is clicked
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close menu when a nav link is clicked
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    }
-});
-
 </body>
 </html>

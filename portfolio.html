@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - IT Portfolio</title>
+    <style>
+        /* ========== BASIC RESET ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ========== COLORS & FONTS ========== */
+        /* Pwede mong palitan ang mga kulay dito */
+        :root {
+            --primary-color: #2c3e50;      /* Dark blue-gray */
+            --secondary-color: #3498db;    /* Bright blue */
+            --accent-color: #e74c3c;       /* Red accent */
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* ========== NAVIGATION BAR ========== */
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* ========== HERO SECTION (Top part) ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 120px 2rem 80px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* ========== GENERAL SECTION STYLING ========== */
+        section {
+            padding: 60px 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* ========== SKILLS SECTION ========== */
+        .skills {
+            background-color: var(--light-bg);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar {
+            background-color: #e0e0e0;
+            height: 10px;
+            border-radius: 5px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            background-color: var(--secondary-color);
+            height: 100%;
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+
+        /* ========== PROJECTS SECTION ========== */
+        .projects {
+            background-color: var(--white);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--light-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #999;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        .contact {
+            background-color: var(--light-bg);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        /* Para sa mobile phones */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-img {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== NAVIGATION ========== -->
+    <nav>
+        <div class="container">
+            <div class="logo">John Carl Dieparene</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="home" class="hero">
+        <h1>Hi, I'm John Carl Dieparene</h1>
+        <p>IT Student | Aspiring Developer</p>
+        <a href="#contact" class="btn">Get In Touch</a>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div>
+                    <!-- Pwede mong palitan ng actual photo mo -->
+                    <img src="images/id.jpg" alt="Profile Photo" class="profile-img">
+                </div>
+                <div>
+                    <h3>Hello! I'm an IT Student</h3>
+                    <p>
+                        <!-- I-customize mo ang text na ito -->
+                        I'm currently pursuing my degree in Information Technology at New Era University. 
+                        I'm passionate about technology and constantly learning new skills in programming, 
+                        web development, and software engineering.
+                    </p>
+                    <p>
+                        My goal is to become a skilled developer and contribute to innovative projects 
+                        that make a positive impact. I'm always eager to learn and take on new challenges.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SKILLS SECTION ========== -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <!-- Skill Card 1 -->
+                <div class="skill-card">
+                    <h3>Programming</h3>
+                    <p>Python, Java, C++</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="skill-card">
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS, JavaScript</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="skill-card">
+                    <h3>Database</h3>
+                    <p>MySQL, MongoDB</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div class="skill-card">
+                    <h3>Tools & Software</h3>
+                    <p>Git, VS Code, Figma</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- ========== PROJECTS SECTION ========== -->
+<section id="projects" class="projects">
+    <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            
+            <!-- PROJECT 1: TO-DO LIST -->
+            <div class="project-card">
+                <div class="project-img">✅</div>
+                <div class="project-content">
+                    <h3>Task Master - To-Do List App</h3>
+                    <p>A full-featured task management web application with CRUD operations, real-time filtering, and persistent data storage using Local Storage API.</p>
+                    <p style="margin-top: 10px;"><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, Local Storage</p>
+                    <p style="margin-top: 5px;"><strong>Features:</strong> Add/Edit/Delete tasks, Filters, Statistics, Animations</p>
+                    <a href="project1-todo-list.html" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block; margin-right: 10px;">View Live Demo</a>
+                    <a href="https://github.com/yourusername/todo-list" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block; background-color: #333;">View Code</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 2: PASSWORD GENERATOR -->
+            <div class="project-card">
+                <div class="project-img">🔐</div>
+                <div class="project-content">
+                    <h3>Password Generator & Strength Checker</h3>
+                    <p>A Python desktop application with GUI that generates secure random passwords and evaluates password strength using multiple security criteria.</p>
+                    <p style="margin-top: 10px;"><strong>Tech Stack:</strong> Python, Tkinter, Regular Expressions</p>
+                    <p style="margin-top: 5px;"><strong>Features:</strong> Random generation, Strength meter, Clipboard integration</p>
+                    <a href="https://github.com/yourusername/password-generator" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">View Code on GitHub</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 3: SNAKE GAME -->
+            <div class="project-card">
+                <div class="project-img">🐍</div>
+                <div class="project-content">
+                    <h3>Classic Snake Game</h3>
+                    <p>Classic Snake game developed with Python and Pygame, featuring smooth animations, collision detection, and score tracking implemented using OOP principles.</p>
+                    <p style="margin-top: 10px;"><strong>Tech Stack:</strong> Python, Pygame, OOP</p>
+                    <p style="margin-top: 5px;"><strong>Features:</strong> Smooth gameplay, High score system, Game states</p>
+                    <a href="https://github.com/yourusername/snake-game" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">View Code on GitHub</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-content">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+                
+                <div class="contact-info">
+                    <p>Or reach me at:</p>
+                    <a href="mailto:your.email@example.com">your.email@example.com</a>
+                    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p>&copy; 2026 John Carl Dieparene. All rights reserved.</p>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // Smooth scrolling para sa navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Simple form submission handler
+        // Note: Ito ay placeholder lang. Para gumana talaga ang form,
+        // kailangan mo ng backend or email service
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! (Note: I-setup mo pa ang actual form submission)');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
